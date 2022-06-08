@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+let dadosLogin
 
 context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
     /*  Como cliente 
@@ -10,11 +11,130 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
         E validando minha compra ao final */
 
     beforeEach(() => {
-        cy.visit('/')
+        cy.visit('produtos/')
+        cy.fixture('perfil').then(perfil => {
+            dadosLogin = perfil
+        })
     });
 
     it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
-        //TODO 
+        //TODO
+        var quantidade = 1
+
+        cy.get('[class="product-block grid"]')
+            .contains('Aero Daily Fitness Tee')
+            .click()
+
+        cy.get('.button-variable-item-L')
+            .click()
+        cy.get('.button-variable-item-Brown')
+            .click()
+        cy.get('.input-text')
+            .clear()
+            .type(quantidade)
+        cy.get('.single_add_to_cart_button')
+            .click()
+        cy.get('.dropdown-toggle > .mini-cart-items')
+            .should('contain', 1)
+        cy.get('.woocommerce-message')
+            .should('contain', ' “Aero Daily Fitness Tee” foi adicionado no seu carrinho.')
+
+
+        cy.get('#primary-menu > .menu-item-629 > a')
+            .click()
+
+
+        cy.get('[class="product-block grid"]')
+            .contains('Aether Gym Pant')
+            .click()
+        cy.get('.button-variable-item-34')
+            .click()
+        cy.get('.button-variable-item-Brown')
+            .click()
+        cy.get('.input-text')
+            .clear()
+            .type(quantidade)
+        cy.get('.single_add_to_cart_button')
+            .click()
+        cy.get('.dropdown-toggle > .mini-cart-items')
+            .should('contain', 2)
+        cy.get('.woocommerce-message')
+            .should('contain', ' “Aether Gym Pant” foi adicionado no seu carrinho.')
+
+
+        cy.get('#primary-menu > .menu-item-629 > a')
+            .click()
+
+
+        cy.get('[class="product-block grid"]')
+            .contains('Abominable Hoodie')
+            .click()
+        cy.get('.button-variable-item-L')
+            .click()
+        cy.get('.button-variable-item-Red')
+            .click()
+        cy.get('.input-text')
+            .clear()
+            .type(quantidade)
+        cy.get('.single_add_to_cart_button')
+            .click()
+        cy.get('.dropdown-toggle > .mini-cart-items')
+            .should('contain', 3)
+        cy.get('.woocommerce-message')
+            .should('contain', ' “Abominable Hoodie” foi adicionado no seu carrinho.')
+
+
+        cy.get('#primary-menu > .menu-item-629 > a')
+            .click()
+        cy.get(':nth-child(6) > .page-numbers')
+            .click()
+
+
+        cy.get('[class="product-block grid"]')
+            .contains('Stark Fundamental Hoodie')
+            .click()
+        cy.get('.button-variable-item-L')
+            .click()
+        cy.get('.button-variable-item-Blue')
+            .click()
+        cy.get('.input-text')
+            .clear()
+            .type(quantidade)
+        cy.get('.single_add_to_cart_button')
+            .click()
+        cy.get('.dropdown-toggle > .mini-cart-items')
+            .should('contain', 4)
+        cy.get('.woocommerce-message')
+            .should('contain', ' “Stark Fundamental Hoodie” foi adicionado no seu carrinho.')
+
+
+        cy.get('.woocommerce-message > .button')
+            .click()
+        cy.get('.checkout-button')
+            .click()
+        cy.get('.showlogin')
+            .click()
+
+
+        cy.get('#username')
+            .type(dadosLogin.usuario)
+        cy.get('#password')
+            .type(dadosLogin.senha, { log: false })
+        cy.get('.woocommerce-button')
+            .click()
+
+        cy.get('#terms')
+            .click()
+        cy.get('[class="btn btn-primary btn-outline alt"]')
+            .contains('Finalizar compra')
+            .click({ force: true })
+
+        cy.get('.woocommerce-notice')
+            .should('contain', 'Obrigado. Seu pedido foi recebido.')
+        cy.get('.woocommerce-order-details__title')
+            .should('contain', 'Detalhes do pedido')
+
+
     });
 
 

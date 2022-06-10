@@ -47,7 +47,7 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
         cy.get('[class="product-block grid"]')
             .contains('Aether Gym Pant')
             .click()
-        cy.get('.button-variable-item-34')
+        cy.get('.button-variable-item-33')
             .click()
         cy.get('.button-variable-item-Brown')
             .click()
@@ -135,7 +135,7 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
             .should('contain', 'Detalhes do pedido')
     });
 
-    it.only('Deve fazer um pedido na loja Ebac Shop de ponta a ponta - Usando Comandos customizado. ', () => {
+    it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta - Usando Comandos customizado. ', () => {
         cy.addProdutos('Abominable Hoodie', 'L', 'Red', 1)
         cy.get('.dropdown-toggle > .mini-cart-items')
             .should('contain', 1)

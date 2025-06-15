@@ -1,54 +1,28 @@
-# Testes End to End - Ebac Shop
-### Exercício para os alunos de Qualidade de software da EBAC 
+# Testes E2E – EBAC Shop com Cypress (Exercício)
 
-Ebac shop: http://lojaebac.ebaconline.art.br/
+Este projeto foi desenvolvido como parte de um exercício prático no curso de Testes Automatizados com Cypress da EBAC.  
+A base do projeto foi fornecida pela escola e **forkada do repositório oficial da EBAC**, com modificações e desenvolvimento dos testes por mim.
 
-## Clonando e executando em sua máquina
+## 📌 Funcionalidades testadas
 
-### Pré-requisito:
+### 🔹 e2e.spec.js – Fluxo de Compra
+- Adição de múltiplos produtos ao carrinho com comando customizado
+- Navegação entre páginas de produtos
+- Validação de quantidade de itens no carrinho
+- Processo de checkout completo com login e aceite de termos
+- Verificação da mensagem de confirmação de pedido
 
--Node.js - Você encontra em: https://nodejs.org/en/
+### 🔹 login.spec.js – Testes de Login
+- Login com dados válidos via comando customizado
+- Login utilizando fixture (`perfil.json`)
+- Validação da página "Minha conta" e saudação ao usuário logado
+- Comparação com login sem otimização
 
--Visual Studio Code ou qualquer editor de texto - você encontra em: https://code.visualstudio.com/download
+## 🛠️ Tecnologias Utilizadas
 
--Git: você encontra em: https://git-scm.com/downloads
-
-
-Via terminal, rode os seguintes comandos:
-```  
-git clone https://github.com/EBAC-QE/testes-e2e-ebac-shop.git
-```
-```
-cd testes-e2e-ebac-shop
-```
-
-#### Para instalar as dependencias:
-```
-npm install 
-```
-
-#### Para executar em moodo Headlesss via console:
-```
-npx cypress run
-```
-
-#### Para executar via Dashboard:
-```
-npx cypress open 
-```
-Após abrir o dasboard, clique na opção "Running integration tests" para rodar todos os testes.
-
-
-### Bibliotecas de apoio:
--Cypress: Framework de automação: https://cypress.io/
-
--Faker: Biblioteca para geração de massa de dados: https://www.npmjs.com/package/faker
-
-
-### Bom exercício ;) 
-Fábio & José Ernesto
-Qualidade de software
-
-
+- Cypress
+- JavaScript
+- Node.js
+- Visual Studio Code
 
 

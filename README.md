@@ -12,7 +12,7 @@ This project aims to automate end-to-end tests for the EBAC Shop website, valida
 
 ## 🚀 Tecnologias / Technologies
 
-- [Cypress v14](https://www.cypress.io/) (E2E Testing)
+- [Cypress](https://www.cypress.io/) (E2E Testing)
 - JavaScript (ES6)
 - Node.js
 - Mocha / Chai
